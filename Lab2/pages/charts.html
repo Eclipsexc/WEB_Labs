@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аналітика</title>
+    <link rel="stylesheet" href="/components/header_footer.css">
+    <link rel="stylesheet" href="/styles/charts.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="charts-container">
+        <div class="platform">
+            <div class="main-title">Аналіз доходів, витрат і персоналу</div>
+
+            <div class="button-group">
+                <button class="toggle-btn active" data-type="revenue">Доходи</button>
+                <button class="toggle-btn" data-type="expenses">Витрати</button>
+                <button class="toggle-btn" data-type="employees">Працівники</button>
+            </div>
+
+            <div class="chart-and-table">
+                <canvas id="barChart"></canvas>
+
+                <div class="table-container">
+                    <table id="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Компанія</th>
+                                <th>Реальне значення</th>
+                                <th>Змодельоване значення</th>
+                                <th>Різниця</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/scripts/market_data.js"></script>
+    <script src="/scripts/charts.js"></script>
+    <script src="/components/header.js"></script>
+</body>
+</html>

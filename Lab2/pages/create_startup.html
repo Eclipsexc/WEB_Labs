@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій стартап</title>
+    <link rel="stylesheet" href="/components/header_footer.css">
+    <link rel="stylesheet" href="/styles/create_startup.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="main-container">
+        <div class="form-container">
+            <div class="left-section">
+                <p class="static-title">Мій стартап</p>
+                <p>Створіть компанію, оберіть сферу діяльності та налаштуйте параметри бізнесу.</p>
+
+                <label for="company-name">
+                    <img src="/assets/icons/feather.png" alt="feather" class="icon"> Назва компанії:
+                </label>
+                <input type="text" id="company-name" placeholder="Введіть назву">
+
+                <label for="business-sector">
+                    <img src="/assets/icons/sphere.png" alt="sphere" class="icon"> Сфера діяльності:
+                </label>
+                <select id="business-sector" size="5"></select>
+            </div>
+
+            <div class="right-section">
+                <h2>Додаткові параметри:</h2>
+
+                <label for="employees">
+                    <img src="/assets/icons/people.png" alt="people" class="icon"> Кількість працівників:
+                </label>
+                <input type="number" id="employees" placeholder="Введіть кількість">
+
+                <label for="starting-capital">
+                    <img src="/assets/icons/dollar.png" alt="dollar" class="icon"> Стартовий капітал (USD):
+                </label>
+                <input type="number" id="starting-capital" placeholder="Введіть стартовий капітал">
+
+                <label for="organization-type">
+                    <img src="/assets/icons/type.png" alt="type" class="icon"> Тип організації:
+                </label>
+                <select id="organization-type"></select>
+
+                <label for="country">
+                    <img src="/assets/icons/address.png" alt="address" class="icon"> Адреса офісу:
+                </label>
+                <div class="address-container">
+                    <input type="text" id="country" placeholder="Країна">
+                    <input type="text" id="city" placeholder="Місто">
+                    <input type="text" id="street" placeholder="Вулиця">
+                    <input type="number" id="building" placeholder="Номер будинку">
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Створити стартап</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        function loadComponent(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => console.error(`Помилка завантаження ${url}:`, error));
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadComponent("header-container", "/components/header.html");
+            loadComponent("footer-container", "/components/footer.html");
+        });
+    </script>
+
+    <script src="/scripts/startup_options.js"></script>
+    <script src="/components/header.js"></script>
+    <script src="/scripts/create_startup.js"></script>
+</body>
+</html>

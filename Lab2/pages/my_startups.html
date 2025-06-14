@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Мої стартапи</title>
+    <link rel="stylesheet" href="/components/header_footer.css" />
+    <link rel="stylesheet" href="/styles/my_startups.css" />
+</head>
+<body>
+<div id="header-container"></div>
+
+<div class="market-container">
+    <div class="competitors-grid-wrapper">
+        <h1 class="non-clickable">Мої стартапи</h1>
+
+        <div class="competitors-grid"></div>
+    </div>
+</div>
+
+<div class="modal" id="startupModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">×</span>
+        <h2 id="modalTitle">Детальний опис:</h2>
+        <div class="modal-grid">
+            <div class="modal-left" id="modalLeft"></div>
+            <div class="modal-right" id="modalRight"></div>
+        </div>
+    </div>
+</div>
+
+<div id="footer-container"></div>
+
+<script src="/scripts/my_startups.js"></script>
+<script>
+    function loadComponent(id, url) {
+        fetch(url)
+            .then(res => res.text())
+            .then(data => document.getElementById(id).innerHTML = data)
+            .catch(err => console.error(`Помилка завантаження ${url}:`, err));
+    }
+
+    function closeModal() {
+        document.getElementById("startupModal").style.display = "none";
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        loadComponent("header-container", "/components/header.html");
+        loadComponent("footer-container", "/components/footer.html");
+    });
+</script>
+</body>
+</html>
