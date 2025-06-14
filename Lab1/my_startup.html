@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій стартап</title>
+    <link rel="stylesheet" href="header_footer.css">
+    <link rel="stylesheet" href="my_startup.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+
+    <main class="main-container">
+        <div class="form-container">
+            <div class="left-section">
+                <h1>Мій стартап</h1>
+                <p>Створіть компанію, оберіть сферу діяльності та налаштуйте параметри бізнесу.</p>
+
+                <label for="company-name">
+                    <img src="icons/feather.png" alt="feather" class="icon"> Назва компанії:
+                </label>
+                <input type="text" id="company-name" placeholder="Введіть назву">
+
+                <label for="business-sector">
+                    <img src="icons/sphere.png" alt="sphere" class="icon"> Сфера діяльності:
+                </label>
+                <select id="business-sector" size="5">
+                    <option>Технології</option>
+                    <option>Фінанси</option>
+                    <option>Охорона здоров'я</option>
+                    <option>Туризм</option>
+                    <option>Маркетинг</option>
+                    <option>Освіта</option>
+                    <option>Електронна комерція</option>
+                    <option>Логістика</option>
+                    <option>Енергетика</option>
+                    <option>Розваги</option>
+                    <option>Агробізнес</option>
+                    <option>Юридичні послуги</option>
+                    <option>Дизайн та мистецтво</option>
+                    <option>Кібербезпека</option>
+                    <option>Нерухомість</option>
+                </select>
+                
+            </div>
+
+            <div class="right-section">
+                <h2>Додаткові параметри:</h2>
+
+                <label for="employees">
+                    <img src="icons/people.png" alt="people" class="icon"> Кількість працівників:
+                </label>
+                <input type="number" id="employees" placeholder="Введіть кількість">
+
+                <label for="starting-capital">
+                    <img src="icons/dollar.png" alt="dollar" class="icon"> Стартовий капітал (USD):
+                </label>
+                <input type="number" id="starting-capital" placeholder="Введіть стартовий капітал">
+
+                <label for="organization-type">
+                    <img src="icons/type.png" alt="type" class="icon"> Тип організації:
+                </label>
+                <select id="organization-type">
+                    <option value="fop">ФОП (Фізична особа-підприємець)</option>
+                    <option value="tov">ТОВ (Товариство з обмеженою відповідальністю)</option>
+                    <option value="prat">ПрАТ (Приватне акціонерне товариство)</option>
+                    <option value="vat">ВАТ (Відкрите акціонерне товариство)</option>
+                    <option value="ngo">Громадська організація</option>
+                </select>
+
+                <h3>
+                    <img src="icons/address.png" alt="address" class="icon"> Адреса офісу:
+                </h3>
+                <div class="address-container">
+                    <input type="text" id="country" placeholder="Країна">
+                    <input type="text" id="city" placeholder="Місто">
+                    <input type="text" id="street" placeholder="Вулиця">
+                    <input type="text" id="building" placeholder="Номер будинку">
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Створити стартап</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        function loadComponent(id, url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                })
+                .catch(error => console.error(`Помилка завантаження ${url}:`, error));
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            loadComponent("header-container", "header.html");
+            loadComponent("footer-container", "footer.html");
+        });
+    </script>
+
+</body>
+</html>
